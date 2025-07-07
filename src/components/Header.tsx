@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -8,9 +9,14 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="flex-shrink-0">
-                <h1 className="text-xl font-bold text-white transition-transform group-hover:scale-105">
-                  Mono-Logue
-                </h1>
+                <Image
+                  src="/logo.svg"
+                  alt="Mono-Logue"
+                  width={160}
+                  height={40}
+                  className="h-10 w-auto transition-transform group-hover:scale-105"
+                  priority
+                />
               </div>
             </Link>
           </div>

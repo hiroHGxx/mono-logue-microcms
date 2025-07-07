@@ -124,8 +124,14 @@ export default async function Home() {
             {/* Profile Card */}
             <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
               <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-lg">
-                  <span className="text-2xl font-bold text-white">H</span>
+                <div className="w-24 h-24 mx-auto mb-4">
+                  <Image
+                    src="/images/profile/avatar.jpg"
+                    alt="ヒロのプロフィール画像"
+                    width={96}
+                    height={96}
+                    className="w-24 h-24 rounded-full object-cover shadow-lg"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-2" style={{color: 'var(--color-text-primary)'}}>
                   ヒロ

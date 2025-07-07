@@ -80,9 +80,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-              <span className="text-xs font-bold text-white">H</span>
-            </div>
+            <Image
+              src="/images/profile/avatar.jpg"
+              alt="ヒロのプロフィール画像"
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-full object-cover"
+            />
             <span className="text-sm font-medium" style={{color: 'var(--color-text-secondary)'}}>
               ヒロ
             </span>

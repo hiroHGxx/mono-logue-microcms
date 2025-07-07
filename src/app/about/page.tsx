@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -17,9 +18,14 @@ export default async function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="relative w-32 h-32 mx-auto mb-8">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-lg">
-              <span className="text-4xl font-bold text-white">H</span>
-            </div>
+            <Image
+              src="/images/profile/avatar.jpg"
+              alt="ヒロのプロフィール画像"
+              width={128}
+              height={128}
+              className="w-32 h-32 rounded-full object-cover shadow-lg"
+              priority
+            />
           </div>
           <h1 className="text-4xl font-bold mb-4" style={{color: 'var(--color-text-primary)'}}>
             ヒロのプロフィール
