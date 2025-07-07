@@ -1,6 +1,5 @@
 import { getPosts } from '@/lib/microcms'
-import { calculateReadingTime, formatReadingTime } from '@/lib/reading-time'
-import Link from 'next/link'
+import BlogCard from '@/components/BlogCard'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -36,78 +35,14 @@ export default async function BlogPage() {
             </p>
           </div>
         ) : (
-          <div className="grid gap-8 md:gap-12">
-            {posts.map((post) => {
-              const readingTime = calculateReadingTime(post.content)
-              
-              return (
-                <article
-                  key={post.id}
-                  className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
-                  style={{
-                    backgroundColor: 'var(--color-surface)',
-                    borderColor: 'var(--color-secondary)',
-                  }}
-                >
-                  <div className="flex flex-col space-y-4">
-                    <div>
-                      <Link 
-                        href={`/blog/${post.slug}`}
-                        className="block group"
-                      >
-                        <h2 
-                          className="text-2xl font-semibold mb-2 group-hover:underline"
-                          style={{color: 'var(--color-text-primary)'}}
-                        >
-                          {post.title}
-                        </h2>
-                      </Link>
-                      
-                      {post.excerpt && (
-                        <p 
-                          className="text-base line-clamp-3"
-                          style={{color: 'var(--color-text-secondary)'}}
-                        >
-                          {post.excerpt}
-                        </p>
-                      )}
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4 text-sm" style={{color: 'var(--color-text-muted)'}}>
-                        <time dateTime={post.publishedAt}>
-                          {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                          })}
-                        </time>
-                        <span className="flex items-center">
-                          <svg className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {formatReadingTime(readingTime)}
-                        </span>
-                      </div>
-                      
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors hover:opacity-80"
-                        style={{
-                          backgroundColor: 'var(--color-accent)',
-                          color: 'white',
-                        }}
-                      >
-                        記事を読む
-                        <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                </article>
-              )
-            })}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
+            {posts.map((post, index) => (
+              <BlogCard 
+                key={post.id} 
+                post={post} 
+                featured={index === 0}
+              />
+            ))}
           </div>
         )}
 

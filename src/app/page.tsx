@@ -98,17 +98,78 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About & Profile Section */}
       <section className="py-16" style={{backgroundColor: 'var(--color-surface)'}}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6" style={{color: 'var(--color-text-primary)'}}>
-            Mono-Logueについて
-          </h2>
-          <p className="text-lg leading-relaxed" style={{color: 'var(--color-text-secondary)'}}>
-            プログラミング、テクノロジー、そして日常の中で気づいたことを記録しています。
-            技術的な学びを通じて、より良い暮らしや仕事のヒントを見つけていく過程を
-            皆さんと共有したいと思います。
-          </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* About Mono-Logue */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6" style={{color: 'var(--color-text-primary)'}}>
+                Mono-Logueについて
+              </h2>
+              <p className="text-lg leading-relaxed mb-6" style={{color: 'var(--color-text-secondary)'}}>
+                プログラミング、テクノロジー、そして日常の中で気づいたことを記録しています。
+                技術的な学びを通じて、より良い暮らしや仕事のヒントを見つけていく過程を
+                皆さんと共有したいと思います。
+              </p>
+              <Link 
+                href="/about"
+                className="inline-block text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all font-medium"
+                style={{backgroundColor: 'var(--color-accent)'}}
+              >
+                詳しく見る
+              </Link>
+            </div>
+
+            {/* Profile Card */}
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+              <div className="text-center">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-lg">
+                  <span className="text-2xl font-bold text-white">H</span>
+                </div>
+                <h3 className="text-2xl font-bold mb-2" style={{color: 'var(--color-text-primary)'}}>
+                  ヒロ
+                </h3>
+                <p className="text-base mb-4" style={{color: 'var(--color-text-muted)'}}>
+                  プログラマー・3児の父
+                </p>
+                <p className="text-sm leading-relaxed mb-6" style={{color: 'var(--color-text-secondary)'}}>
+                  技術と日常の両立を追求しながら、暮らしの中で見つけた気づきや
+                  学びを記録しています。家族と過ごす時間を大切にしながら、
+                  継続的な学習と成長を心がけています。
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  <a
+                    href="https://x.com/hsrk_g_hsrk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded text-white text-sm transition-all hover:opacity-90"
+                    style={{backgroundColor: '#1DA1F2'}}
+                  >
+                    Twitter
+                  </a>
+                  <a
+                    href="https://github.com/hiroHGxx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded text-white text-sm transition-all hover:opacity-90"
+                    style={{backgroundColor: '#333'}}
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href="https://stand.fm/channels/6399d332df23c21009b42475"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded text-white text-sm transition-all hover:opacity-90"
+                    style={{backgroundColor: '#FF6B35'}}
+                  >
+                    stand.fm
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
